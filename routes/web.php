@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('questions','QuestionsController')->except('show');
+//Route::post('question/{question}/answers','AnswerController@store')->name('answers.store');
+Route::resource('questions.answers','AnswersController')->only(['store','edit','update','destroy']);
+Route::get('/questions/{slug}','QuestionsController@show')->name('questions.show');
+Route::post('/answers/{answer}/accepted','AcceptAnswerController')->name('answer.accept');
+
+Route::post('/questions/{question}/favorites','FavoritesController@store')->name('question.favorite');
+Route::delete('/questions/{question}/favorites','FavoritesController@destroy')->name('question.unfavorite');
