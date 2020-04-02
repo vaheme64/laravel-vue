@@ -29,7 +29,6 @@
                                 <span class="votes-count">{{$question->votes_count}}</span>
                                 <a class="vote-down {{Auth()->guest() ? 'off' : ''}}" title="This Question is not useful"
                                    onclick="event.preventDefault(); document.getElementById('down-vote-question-{{$question->id}}').submit();">
-                                >
                                     <i class="fa fa-caret-down fa-3x"></i>
                                 </a>
                                 <form method="post" id='down-vote-question-{{$question->id}}' action="/questions/{{ $question->id }}/vote" style="display: none;">

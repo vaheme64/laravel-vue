@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Question;
+use App\Answer;
 use Illuminate\Http\Request;
 
-class VoteQuestionController extends Controller
+class VoteAnswerController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function __invoke(Question $question)
+    public function __invoke(Answer $answer)
     {
         $vote=(int) request()->vote;
-        auth()->user()->voteQuestion($question,$vote);
+        auth()->user()->voteAnswer($answer,$vote);
 
         return back();
     }
