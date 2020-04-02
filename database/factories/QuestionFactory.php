@@ -11,6 +11,6 @@ $factory->define(App\Question::class, function (Faker $faker) {
         'body'=>$faker->paragraph(rand(5,10),true),
         'views'=>rand(0,10),
 //        'answer_count'=>rand(0,10),
-        'votes_count'=>rand(-3,10)
+//        'votes_count'=>rand(-3,10)
     ];
 });
